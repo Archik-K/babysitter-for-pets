@@ -19,6 +19,7 @@
 			"С выездом",
 			"На дому"
 		],
+		"tel": "79055008994",
 		"photo": "src/pictures/nanny5.jpeg",
 		"id": "0"
 	},
@@ -42,6 +43,7 @@
 			"С выездом",
 			"На дому"
 		],
+		"tel": "79655658994",
 		"photo": "src/pictures/nanny4.png",
 		"id": "1"
 	},
@@ -65,6 +67,7 @@
 			"С выездом",
 			"На дому"
 		],
+		"tel": "79037658876",
 		"photo": "https://i0.wp.com/squeakdreams.com/wp-content/uploads/2020/11/Me.jpg?w=800&ssl=1",
 		"id": "2"
 	},
@@ -88,6 +91,7 @@
 			"С выездом",
 			"На дому"
 		],
+		"tel": "79774456211",
 		"photo": "src/pictures/nanny3.jpeg",
 		"id": "3"
 	}

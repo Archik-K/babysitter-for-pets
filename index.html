@@ -30,6 +30,42 @@
 				<a href="#filter_block__title_yakor" class="navigation__link_2">Найти няню</a>
 				<a href="#nannys_cards" class="navigation__link_3">Те кто будут рады вам помочь</a>
 				<a href="#registration-forms_yakor" class="navigation__link_4">Оставить заявку</a>
+				<div id="menu_registr">
+					<div id="menu-bar" onclick="menuOnClick()">
+						<div id="bar1" class="bar"></div>
+						<div id="bar2" class="bar"></div>
+						<div id="bar3" class="bar"></div>
+					</div>
+					<nav class="nav_registr" id="nav_registr">
+						<ul>
+							<li><a href="#"><button class='button_registr' id="userRegisterBtn">Регистрация пользователя</button></a>
+							</li>
+							<li><a href="#"> <button class='button_registr' id="nannyRegisterBtn">Регистрация няни</button></a></li>
+							<li><a href="#"><button class='button_registr' id="loginBtn">Авторизация</button></a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="menu-bg" id="menu-bg"></div>
+				<div id="userRegisterModal" style="display: none;" class="modal">
+					<span class="close" onclick="closeModal('userRegisterModal')">&times;</span>
+					<h2>Регистрация пользователя</h2>
+					<input type="text" id="userUsername" placeholder="Имя пользователя">
+					<input type="password" id="userPassword" placeholder="Пароль">
+					<button onclick="registerUser()">Зарегистрироваться</button>
+				</div>
+				<div id="nannyRegisterModal" style="display: none;" class="modal">
+					<span class="close" onclick="closeModal('nannyRegisterModal')">&times;</span>
+					<h2>Регистрация няни</h2>
+					<input type="text" id="nannyUsername" placeholder="Имя пользователя">
+					<input type="password" id="nannyPassword" placeholder="Пароль">
+					<button onclick="registerNanny()">Зарегистрироваться</button>
+				</div>
+				<div id="loginModal" style="display: none;" class="modal">
+					<span class="close" onclick="closeModal('loginModal')">&times;</span>
+					<h2>Авторизация</h2>
+					<input type="text" id="loginUsername" placeholder="Имя пользователя">
+					<input type="password" id="loginPassword" placeholder="Пароль">
+					<button onclick="login()" id="avtoriz">Войти</button>
 				<details class="dropdown">
 					<summary role="button">
 					<a class="button_registr_click"><img id="img_registr" src="./src/pictures/img_519969.png"></a>
@@ -61,19 +97,20 @@
 <input type="password" id="loginPassword" placeholder="Пароль">
 <button onclick="login()" id="avtoriz">Войти</button>
 
-</div><div class="overlay" id="overlay"></div>
-		</div>
+				</div>
+				<div class="overlay" id="overlay"></div>
+			</div>
 			<div class="hamburger-menu">
 				<input id="menu__toggle" type="checkbox" />
 				<label class="menu__btn" for="menu__toggle">
-				<span></span>
+					<span></span>
 				</label>
-			
+
 				<ul class="menu__box">
-				<li><a class="menu__item" href="#client_pain_yakor">Почему вы здесь</a></li>
-				<li><a class="menu__item" href="#filter_block__title_yakor">Найти няню</a></li>
-				<li><a class="menu__item" href="#nannys_cards">Те кто будут рады вам помочь</a></li>
-				<li><a class="menu__item" href="#registration-forms_yakor">Оставить заявку</a></li>
+					<li><a class="menu__item" href="#client_pain_yakor">Почему вы здесь</a></li>
+					<li><a class="menu__item" href="#filter_block__title_yakor">Найти няню</a></li>
+					<li><a class="menu__item" href="#nannys_cards">Те кто будут рады вам помочь</a></li>
+					<li><a class="menu__item" href="#registration-forms_yakor">Оставить заявку</a></li>
 				</ul>
 			</div>
 		</section>
@@ -214,7 +251,7 @@
 			<div class="container searching">
 				<div class="w-100 searching__result">
 					<div id="cards">
-						
+
 					</div>
 				</div>
 				<div class="filter-mobile" id="btnappfilter1">Фильтр</div>
@@ -444,6 +481,9 @@
 				<input type="text" class="form-control" id="petForm2" placeholder="Порода питомца" required />
 			</div>
 			<div class="mb-3">
+				<input class="image_pets" type="file" placeholder="Image" />
+			</div>
+			<div class="mb-3">
 				<label for="phoneForm" class="form-label">Телефон</label>
 				<input type="tel" class="form-control" id="phoneForm" placeholder="+7**********" required />
 			</div>
@@ -483,6 +523,7 @@
 							<option value="8">8</option>
 							<option value="9">9</option>
 							<option value="10">10</option>
+							<option value="11">более 10</option>
 						</select>
 					</div>
 				</div>
@@ -567,8 +608,8 @@
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 		crossorigin=""></script>
-		<script src="./rating.js"></script>
-		<script src="/registration.js"></script>
+	<script src="./rating.js"></script>
+	<script src="/registration.js"></script>
 </body>
 
 </html>

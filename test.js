@@ -2,44 +2,54 @@ const $ = (s) => document.querySelector(s);
 
 const GALLERY = [
 	{
-		title: "Вера, 29 лет, няня со стажем",
+		title: "Лёлик и Болик ищют няню",
 		img: {
 			src: "src/pictures/nanny1.jpg",
-			alt: "Няня Вера",
-			title: "Няня Вера",
+			alt: "морские свинки",
+			title: "Ищю няню на несколько месяцев в год",
 		},
+		checkPets: "морские свинки",
+		petForm2: " Черепааховая и Голландская",
 	},
 	{
-		title: "Евграф Витальевич, 41 год, ветеринар",
+		title: "Барсик ищет няню",
 		img: {
 			src: "src/pictures/nanny2.jpg",
-			alt: "Евграф Витальевич, ветеринар",
-			title: "Оставить питомца с профессионалом",
+			alt: "Кот",
+			title: "Требуется наня на лето",
 		},
+		checkPets: "Кошка",
+		petForm2: " Бразильская",
 	},
 	{
-		title: "Анна, 35 лет, орнитолог",
+		title: "Кеша ищет собеседника",
 		img: {
 			src: "src/pictures/nanny3.jpeg",
-			alt: "Орнитолог Анна и ее попугай",
-			title: "Няня питомцу",
+			alt: "Попугай",
+			title: "Необходима временная передержка",
 		},
+		checkPets: "Попугай",
+		petForm2: " Красноухий ара",
 	},
 	{
-		title: "Алена, 19 лет, просто любит животных",
+		title: "Тузик ищет компанию для гуляния",
 		img: {
 			src: "src/pictures/nanny4.png",
-			alt: "Песоняня Алена со своим псом",
-			title: "Няня для собачки",
+			alt: "Собака",
+			title: "Ищем няню для выгула",
 		},
+		checkPets: "Собака",
+		petForm2: " Бедлингтон терьер",
 	},
 	{
-		title: "Марианна, 25 лет, хозяйка приюта для котиков",
+		title: "Ищем помошника по уходу",
 		img: {
 			src: "src/pictures/nanny5.jpeg",
-			alt: "Хозяйка котоприюта Марианна",
-			title: "Марианна присмотрит за вашим котиком",
+			alt: "Кот",
+			title: "Требуется няня на несколько часов в неделю для ухода",
 		},
+		checkPets: "Кошка",
+		petForm2: " Бурма"
 	},
 ];
 
@@ -58,10 +68,17 @@ const initGallery = (function () {
 		$img.setAttribute("alt", content.img.alt);
 		$img.setAttribute("title", content.img.title);
 		$blocImg.appendChild($img);
+		const $checkPets = document.createElement("figcaption1");
+		$checkPets.innerText = content.checkPets;
+		$creaBlock.appendChild($checkPets);
+		const $petForm2 = document.createElement("figcaption2");
+		$petForm2.innerText = content.petForm2;
+		$creaBlock.appendChild($petForm2);
 		$creaBlock.appendChild($blocImg);
 		const $title = document.createElement("figcaption");
 		$title.innerText = content.title;
 		$creaBlock.appendChild($title);
+
 		return $creaBlock;
 	};
 	const $galleryBloc = document.createElement("div");
@@ -71,3 +88,34 @@ const initGallery = (function () {
 	$galleryBloc.appendChild($galleryContent);
 	$("#nannys_cards").appendChild($galleryBloc);
 })();
+
+// Объявление функции searchResult с аргументом element
+function applicationResult(element) {
+	// Добавление HTML-кода в элемент list (в теле HTML-кода используются свойства объекта element, полученного при вызове функции)
+	let application_card = document.createElement("div");
+	application_card.innerHTML = `
+        <div class="application__card">
+            <div>
+                <h5 class="application__card-title card-title">${element.title}</h5> 
+                <div class="application__card-subtitle">Питомец</div>
+                <div class="application__card-experience">${element.checkPets}</div>
+                <div class="application__card-subtitle">Порода</div>
+                <div class="application__card-experience">${element.petForm2}</div>
+								<div class="card__btn">
+			            <button onclick="window.location.href ='https://t.me/${element.tel}';" class="button-round tel" id="telegramm">
+				            <img2 class="socialicon2">
+			            </button>
+			            <button onclick="window.location.href ='https://wa.me/${element.tel}?text=Здравствуйте,%20хочу%20оставить%20вам%20своего%20питомца';"class="button-round button-round_green" id="whatsApp">
+				            <img1 class="socialicon1">
+			            </button>
+			          </div>
+            </div>
+			<div class="foto_star">
+        <image src="${element.img}" class="search__card-photo" alt="photo" />
+		</div>
+		</div>
+        </div>`;
+	list.appendChild(application_card);
+};
+
+

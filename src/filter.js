@@ -19,6 +19,14 @@ function searchResult(element, index) {
                 <div class="search__card-experience">${element.food}</div>
                 <div class="search__card-subtitle">Оплата</div>
                 <div class="search__card-salary">${element.salary} руб/сутки</div>
+								<div class="card__btn">
+			            <button onclick="window.location.href ='https://t.me/${element.tel}';" class="button-round tel" id="telegramm">
+				            <img2 class="socialicon2">
+			            </button>
+			            <button onclick="window.location.href ='https://wa.me/${element.tel}?text=Здравствуйте,%20хочу%20оставить%20вам%20своего%20питомца';"class="button-round button-round_green" id="whatsApp">
+				            <img1 class="socialicon1">
+			            </button>
+			          </div>
             </div>
 			<div class="foto_star">
         <image src="${element.photo}" class="search__card-photo" alt="photo" />
@@ -626,6 +634,38 @@ FormPet.addEventListener('submit', function (event) {
 	FormPet.reset();
 });
 
+// Функция для сохранения в local storage
+document.getElementById('btn-send').addEventListener('click', function () {
+	const nameForm = document.getElementById("nameForm").value;
+	const citiForm = document.getElementById("citiForm").value;
+	const checkPets = document.querySelectorAll("checkPets").value;
+	const otherPetsBlock = document.getElementById("otherPetsBlock").value;
+	const animalForm = document.getElementById("animalForm").value;
+	const petForm2 = document.getElementById("petForm2").value;
+	const image = document.querySelector(".image_nanny").files[0]; // Вам нужно обработать загрузку изображения вручную, если необходимо
+	const phoneForm = document.getElementById("phoneForm").value;
+	const emailForm = document.getElementById("emailForm").value;
+
+	// Создаем объект для отправки данных
+	const application = {
+		nameForm,
+		image, // Вам нужно обработать загрузку изображения вручную, если необходимо
+		citiForm,
+		checkPets,
+		otherPetsBlock,
+		animalForm,
+		petForm2,
+		image, // Вам нужно обработать загрузку изображения вручную, если необходимо
+		phoneForm,
+		emailForm,
+	};
+	const applicationJSON = JSON.stringify(application);
+	// Сохранение данных в localStorage (предполагается, что данные будут сохраняться безопасно)
+	window.localStorage.setItem('application', applicationJSON);
+	alert("Заявка подана.");
+});
+
+
 
 filterButton.addEventListener("click", function () {
 	if (filterContent.style.display === "none") {
@@ -662,4 +702,29 @@ document.addEventListener("DOMContentLoaded", function () {
 		});
 	});
 });
+
+const telegramm = document.getElementById('telegramm');
+const whatsApp = document.getElementById('whatsApp');
+
+telegramm.addEventListener("click", function (event) {
+	event.preventDefault();
+	// Получаем номер телефона
+	let phoneForm = document.getElementById('phoneForm').value;
+	// Формируем telegramm URL
+	var telegrammUrl = 'https://t.me/' + phoneForm;
+
+	// Открываем telegramm в новой вкладке
+	window.open(telegrammUrl, '_blank');
+})
+
+whatsApp.addEventListener("click", function (event) {
+	event.preventDefault();
+	// Получаем номер телефона
+	let phoneForm = document.getElementById('phoneForm').value;
+	// Формируем telegramm URL
+	var whatsAppUrl = 'https://wa.me/${phoneForm}?text=Здравствуйте,%20хочу%20оставить%20вам%20своего%20питомца';
+
+	// Открываем telegramm в новой вкладке
+	window.open(whatsAppUrl, '_blank');
+})
 

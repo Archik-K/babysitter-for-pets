@@ -269,3 +269,54 @@
 	text-decoration: underline;
 	text-decoration-style: dashed;
 }
+
+
+/* ____________tel__________ */
+.card__btn {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding-top: 3vh;
+	column-gap: 1vw;
+}
+
+.button-round {
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+	border-radius: 50px;
+	border-color: transparent;
+	width: 3vw;
+	height: 3vw;
+	background-color: blue;
+	cursor: pointer;
+
+	transition: background-color 0.6s;
+}
+
+.socialicon1 {
+	background-image: url(./pictures/whatsapp-icon.svg);
+	background-repeat: no-repeat;
+	width: 2vw;
+	height: 2vw;
+	margin-left: 0.3vw;
+	margin-top: 0.5vw;
+}
+
+.socialicon2 {
+	background-image: url(./pictures/telegram-icon.svg);
+	background-repeat: no-repeat;
+	width: 1.5vw;
+	height: 1.5vw;
+}
+
+
+.tel {
+	padding-right: 0.65vw;
+}
+
+.button-round_green {
+	background-color: green;
+}
